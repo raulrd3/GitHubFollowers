@@ -36,7 +36,8 @@ class GFTextField: UITextField {
         
         backgroundColor = .tertiarySystemBackground
         autocorrectionType = .no
-        
+        keyboardType =  .default
+        returnKeyType = .go //what the return key says, needs to be connected
         placeholder = "Enter a username"
     }
     

@@ -26,6 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = createTabBar()
         self.window = window
         
+        configureNavigationBar() //Sets navbar tint color for all VCs to .systemGreen
+        
         
         func createSearchNC() -> UINavigationController {
             let searchVC = SearchViewController()
@@ -59,6 +61,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     }
             
             return tabBar
+        }
+        
+        func configureNavigationBar() {
+            UINavigationBar.appearance().tintColor = .systemGreen
         }
         
     }
