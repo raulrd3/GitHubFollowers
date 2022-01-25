@@ -52,13 +52,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             UITabBar.appearance().tintColor = .systemGreen
             tabBar.viewControllers = [createSearchNC(), createFavoritesNC()]
             
-            // Removes transparency from UITabBar
-            if #available(iOS 15, *) {
-                        let appearance = UITabBarAppearance()
-                        appearance.configureWithOpaqueBackground()
-                        UITabBar.appearance().standardAppearance = appearance
-                        UITabBar.appearance().scrollEdgeAppearance = appearance
-                    }
+//            // Removes transparency from UITabBar
+//            if #available(iOS 15, *) {
+//                        let appearance = UITabBarAppearance()
+//                        appearance.configureWithOpaqueBackground()
+//                        UITabBar.appearance().standardAppearance = appearance
+//                        UITabBar.appearance().scrollEdgeAppearance = appearance
+//                    }
             
             return tabBar
         }
