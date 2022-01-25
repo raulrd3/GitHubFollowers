@@ -70,22 +70,54 @@
 		D87303F4279E373D006C45FF /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
-				D87303F5279E373D006C45FF /* AppDelegate.swift */,
-				D87303F7279E373D006C45FF /* SceneDelegate.swift */,
+				D8A785FD279F902C0095F522 /* Models */,
+				D8A785FC279F750C0095F522 /* Supporting Files */,
+				D8A785FB279F74870095F522 /* Views */,
+				D8A785FA279F74560095F522 /* ViewControllers */,
+			);
+			path = GitHubFollowers;
+			sourceTree = "<group>";
+		};
+		D8A785FA279F74560095F522 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
 				D873040B279E4060006C45FF /* SearchViewController.swift */,
 				D873040D279E40AE006C45FF /* FavoritesListViewController.swift */,
 				D8730413279E61C4006C45FF /* FollowerListViewController.swift */,
 				D8730419279F2FC0006C45FF /* GFAlertViewController.swift */,
+				D873041B279F5A90006C45FF /* UIViewController+Ext.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D8A785FB279F74870095F522 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				D873040F279E50EA006C45FF /* GFButton.swift */,
 				D8730411279E550F006C45FF /* GFTextField.swift */,
 				D8730415279F2AFF006C45FF /* GFTitleLabel.swift */,
 				D8730417279F2EBE006C45FF /* GFBodyLabel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D8A785FC279F750C0095F522 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D87303F5279E373D006C45FF /* AppDelegate.swift */,
+				D87303F7279E373D006C45FF /* SceneDelegate.swift */,
 				D87303FE279E3741006C45FF /* Assets.xcassets */,
 				D8730400279E3741006C45FF /* LaunchScreen.storyboard */,
 				D8730403279E3741006C45FF /* Info.plist */,
-				D873041B279F5A90006C45FF /* UIViewController+Ext.swift */,
 			);
-			path = GitHubFollowers;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D8A785FD279F902C0095F522 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,7 +343,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M73G528T92;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GitHubFollowers/Info.plist;
+				INFOPLIST_FILE = "GitHubFollowers/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -338,7 +370,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M73G528T92;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GitHubFollowers/Info.plist;
+				INFOPLIST_FILE = "GitHubFollowers/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
