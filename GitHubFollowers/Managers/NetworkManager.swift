@@ -13,11 +13,11 @@ class NetworkManager {
     
     private init() {}
     
-    func getFollowers(for username: String, page: Int, completed: @escaping ([Follower]?, String?) -> Void){
+    func getFollowers(for username: String, page: Int, completed: @escaping ([Follower]?, ErrorMessage?) -> Void){
         let endpoint = baseURL + "/users/\(username)/followers?per_page=100&page=\(page)"
         
         guard let url = URL(string: endpoint) else {
-            completed(nil, "This username created an invalid request.  Please try again.")
+            completed(nil, ErrorMessage.invalidUsername)
             return
         }
         
@@ -25,18 +25,18 @@ class NetworkManager {
         let task = session.dataTask(with: url) { data, response, error in
             
             if let _ = error {
-                completed(nil, "Unable to complete your request.  Please check your internet connection.")
+                completed(nil, ErrorMessage.unableToComplete)
             }
             
             // https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
             // 200 Response == OK
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(nil, "Invalid response from the server.  Please try again.")
+                completed(nil, ErrorMessage.invalidResponse)
                 return
             }
             
             guard let data = data else {
-                completed(nil, "The data received from the server was invalid.  Please try again.")
+                completed(nil, ErrorMessage.invalidData)
                 return
             }
             
@@ -46,7 +46,8 @@ class NetworkManager {
                 let followers = try decoder.decode([Follower].self, from: data)
                 completed(followers, nil)
             } catch {
-                completed(nil, "The data received from the server was invalid.  Please try again.")
+//                completed(nil, error.localizedDescription) // Good for Develioer Error Messages
+                completed(nil, ErrorMessage.invalidData)
             }
 
             
