@@ -13,11 +13,11 @@ class NetworkManager {
     
     private init() {}
     
-    func getFollowers(for username: String, page: Int, completed: @escaping ([Follower]?, ErrorMessage?) -> Void){
+    func getFollowers(for username: String, page: Int, completed: @escaping (Result<[Follower], GFError>) -> Void){
         let endpoint = baseURL + "/users/\(username)/followers?per_page=100&page=\(page)"
         
         guard let url = URL(string: endpoint) else {
-            completed(nil, ErrorMessage.invalidUsername)
+            completed(.failure(.invalidUsername))
             return
         }
         
@@ -25,18 +25,18 @@ class NetworkManager {
         let task = session.dataTask(with: url) { data, response, error in
             
             if let _ = error {
-                completed(nil, ErrorMessage.unableToComplete)
+                completed(.failure(.unableToComplete))
             }
             
             // https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
             // 200 Response == OK
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(nil, ErrorMessage.invalidResponse)
+                completed(.failure(.invalidResponse))
                 return
             }
             
             guard let data = data else {
-                completed(nil, ErrorMessage.invalidData)
+                completed(.failure(.invalidData))
                 return
             }
             
@@ -44,10 +44,10 @@ class NetworkManager {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let followers = try decoder.decode([Follower].self, from: data)
-                completed(followers, nil)
+                completed(.success(followers))
             } catch {
 //                completed(nil, error.localizedDescription) // Good for Develioer Error Messages
-                completed(nil, ErrorMessage.invalidData)
+                completed(.failure(.invalidData))
             }
 
             
