@@ -65,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D81CF83C27A73C7900C19052 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D873041B279F5A90006C45FF /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		D87303E9279E373D006C45FF = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +92,7 @@
 		D87303F4279E373D006C45FF /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				D81CF83C27A73C7900C19052 /* Extensions */,
 				D8EBD53627A107820035EDFB /* Utilities */,
 				D8EBD533279FBE8B0035EDFB /* Managers */,
 				D8A785FD279F902C0095F522 /* Models */,
@@ -101,7 +110,6 @@
 				D873040D279E40AE006C45FF /* FavoritesListViewController.swift */,
 				D8730413279E61C4006C45FF /* FollowerListViewController.swift */,
 				D8730419279F2FC0006C45FF /* GFAlertViewController.swift */,
-				D873041B279F5A90006C45FF /* UIViewController+Ext.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

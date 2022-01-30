@@ -60,13 +60,14 @@ class FollowerListViewController: UIViewController {
     
     func getFollowers(username: String, page: Int) {
         
+        showLoadingView()
         // [weak self] makes self weak, which makes it an optional
-        
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             /**
              can use to not have to chain optional calls to self:
              guard let self = self else { return }
              */
+            self?.dismissLoadingView()
             switch result {
             case .success(let followers):
                 
