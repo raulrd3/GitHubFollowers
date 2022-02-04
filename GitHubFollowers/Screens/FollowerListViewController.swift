@@ -145,7 +145,7 @@ extension FollowerListViewController: UICollectionViewDelegate {
 }
 
 extension FollowerListViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    
+    //TODO: -doesn't search all followers, only current page
     func updateSearchResults(for searchController: UISearchController) {
         //Check if search bar text is not empty
         guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
