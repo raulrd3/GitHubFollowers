@@ -28,6 +28,8 @@
 		D8EBAC8327ACBB4C00F40180 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EBAC8227ACBB4C00F40180 /* Constants.swift */; };
 		D8EBAC8527AEEB2A00F40180 /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EBAC8427AEEB2A00F40180 /* GFItemInfoView.swift */; };
 		D8EBAC8727B0A58D00F40180 /* GFItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EBAC8627B0A58D00F40180 /* GFItemInfoViewController.swift */; };
+		D8EBAC8927B1F9B800F40180 /* GFRepoItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EBAC8827B1F9B800F40180 /* GFRepoItemViewController.swift */; };
+		D8EBAC8B27B1FB7300F40180 /* GFFollowerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EBAC8A27B1FB7300F40180 /* GFFollowerItemViewController.swift */; };
 		D8EBD530279FA4AC0035EDFB /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EBD52F279FA4AC0035EDFB /* Follower.swift */; };
 		D8EBD532279FA58A0035EDFB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EBD531279FA58A0035EDFB /* User.swift */; };
 		D8EBD535279FBE960035EDFB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EBD534279FBE960035EDFB /* NetworkManager.swift */; };
@@ -60,6 +62,8 @@
 		D8EBAC8227ACBB4C00F40180 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D8EBAC8427AEEB2A00F40180 /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
 		D8EBAC8627B0A58D00F40180 /* GFItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoViewController.swift; sourceTree = "<group>"; };
+		D8EBAC8827B1F9B800F40180 /* GFRepoItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemViewController.swift; sourceTree = "<group>"; };
+		D8EBAC8A27B1FB7300F40180 /* GFFollowerItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemViewController.swift; sourceTree = "<group>"; };
 		D8EBD52F279FA4AC0035EDFB /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		D8EBD531279FA58A0035EDFB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D8EBD534279FBE960035EDFB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -209,11 +213,21 @@
 		D8EBAC7D27ACAF2500F40180 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D8EBAC8C27B1FBF900F40180 /* ItemInfo ViewControllers */,
 				D8730419279F2FC0006C45FF /* GFAlertViewController.swift */,
 				D8EBAC7E27ACAF4500F40180 /* GFUserInfoHeaderViewController.swift */,
-				D8EBAC8627B0A58D00F40180 /* GFItemInfoViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D8EBAC8C27B1FBF900F40180 /* ItemInfo ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8EBAC8627B0A58D00F40180 /* GFItemInfoViewController.swift */,
+				D8EBAC8827B1F9B800F40180 /* GFRepoItemViewController.swift */,
+				D8EBAC8A27B1FB7300F40180 /* GFFollowerItemViewController.swift */,
+			);
+			path = "ItemInfo ViewControllers";
 			sourceTree = "<group>";
 		};
 		D8EBD533279FBE8B0035EDFB /* Managers */ = {
@@ -317,7 +331,9 @@
 				D8730412279E550F006C45FF /* GFTextField.swift in Sources */,
 				D873040C279E4060006C45FF /* SearchViewController.swift in Sources */,
 				D873041C279F5A90006C45FF /* UIViewController+Ext.swift in Sources */,
+				D8EBAC8B27B1FB7300F40180 /* GFFollowerItemViewController.swift in Sources */,
 				D81CF83B27A6254E00C19052 /* UIHelper.swift in Sources */,
+				D8EBAC8927B1F9B800F40180 /* GFRepoItemViewController.swift in Sources */,
 				D8EBAC8327ACBB4C00F40180 /* Constants.swift in Sources */,
 				D8EBAC7C27A8D33200F40180 /* UserInfoViewController.swift in Sources */,
 				D8EBD53D27A245470035EDFB /* GFAvatarImageView.swift in Sources */,
