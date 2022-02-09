@@ -10,4 +10,5 @@ Specifically, I wanted to improve my understanding of:
 <li>CollectionViews</li>
 <li>TableViews</li>
 
-This repo is based off of content from that course.
+<br><br>
+  <i>This repo is based off of content from that course.</i>
