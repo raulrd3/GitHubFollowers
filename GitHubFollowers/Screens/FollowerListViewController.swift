@@ -7,6 +7,11 @@
 
 import UIKit
 
+
+protocol FollowerListViewControllerDelegate: AnyObject {
+    func didRequestFollowers(for username: String)
+}
+
 class FollowerListViewController: UIViewController {
     
     // enums are hashable by default
@@ -139,6 +144,7 @@ extension FollowerListViewController: UICollectionViewDelegate {
         
         let destinationVC = UserInfoViewController()
         destinationVC.username = follower.login
+        destinationVC.delegate = self
         let navController = UINavigationController(rootViewController: destinationVC)
         present(navController, animated: true)
     }
@@ -159,6 +165,17 @@ extension FollowerListViewController: UISearchResultsUpdating, UISearchBarDelega
         isSearching = false
         updateData(on: followers)
     }
-    
-    
+}
+
+
+extension FollowerListViewController: FollowerListViewControllerDelegate{
+    func didRequestFollowers(for username: String) {
+        self.username = username
+        title = username
+        page = 1
+        followers.removeAll()
+        filteredFollowers.removeAll()
+        collectionView.setContentOffset(.zero, animated: true)
+        getFollowers(username: username, page: page)
+    }
 }
