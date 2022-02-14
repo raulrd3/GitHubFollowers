@@ -23,52 +23,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         window.makeKeyAndVisible()
-        window.rootViewController = createTabBar()
+        window.rootViewController = GFTabBarController()
         self.window = window
         
         configureNavigationBar() //Sets navbar tint color for all VCs to .systemGreen
         
-        
-        func createSearchNC() -> UINavigationController {
-            let searchVC = SearchViewController()
-            searchVC.title = "Search"
-            searchVC.tabBarItem = UITabBarItem.init(tabBarSystemItem: .search, tag: 0)
-            
-            return UINavigationController(rootViewController: searchVC)
-        }
-        
-        
-        func createFavoritesNC() -> UINavigationController {
-            let favoritesListVC = FavoritesListViewController()
-            favoritesListVC.title = "Favorites"
-            favoritesListVC.tabBarItem = UITabBarItem.init(tabBarSystemItem: .favorites, tag: 1)
-            
-            return UINavigationController(rootViewController: favoritesListVC)
-        }
-        
-        
-        func createTabBar() -> UITabBarController {
-            let tabBar = UITabBarController()
-            UITabBar.appearance().tintColor = .systemGreen
-            tabBar.viewControllers = [createSearchNC(), createFavoritesNC()]
-            
-//            // Removes transparency from UITabBar
-//            if #available(iOS 15, *) {
-//                        let appearance = UITabBarAppearance()
-//                        appearance.configureWithOpaqueBackground()
-//                        UITabBar.appearance().standardAppearance = appearance
-//                        UITabBar.appearance().scrollEdgeAppearance = appearance
-//                    }
-            
-            return tabBar
-        }
-        
         func configureNavigationBar() {
             UINavigationBar.appearance().tintColor = .systemGreen
         }
-        
     }
 
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
