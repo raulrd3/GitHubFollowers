@@ -63,7 +63,7 @@ class UserInfoViewController: UIViewController {
         self.add(childVC: repoItemVC, to: self.itemViewOne)
         self.add(childVC: followerItemVC, to: self.itemViewTwo)
         self.add(childVC: GFUserInfoHeaderViewController(user: user), to: self.headerView)
-        self.dateLabel.text = "GitHub since \(user.createdAt.convertToDisplayFormattedDate())"
+        self.dateLabel.text = "GitHub since \(user.createdAt.convertToMonthYearFormat())"
     }
     
     

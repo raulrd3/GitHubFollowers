@@ -5,6 +5,9 @@
 //  Created by Raul Rodriguez III on 2/8/22.
 //
 
+// Code not used: Saving for reference.
+/**
+ 
 import Foundation
 
 extension String {
@@ -24,3 +27,5 @@ extension String {
             return date.convertToMonthYearFormat()
     }
 }
+
+ **/
