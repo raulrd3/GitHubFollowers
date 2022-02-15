@@ -14,7 +14,7 @@ protocol UserInfoViewControllerDelegate: AnyObject {
 }
 
 
-class UserInfoViewController: UIViewController {
+class UserInfoViewController: GFDataLoadingViewController {
 
     let headerView = UIView()
     let itemViewOne = UIView()
