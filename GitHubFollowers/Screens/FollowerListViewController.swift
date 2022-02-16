@@ -25,6 +25,7 @@ class FollowerListViewController: GFDataLoadingViewController {
     var page = 1
     var hasMoreFollowers = true
     var isSearching = false
+    var isLoadingMoreFollowers = false
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
@@ -88,6 +89,8 @@ class FollowerListViewController: GFDataLoadingViewController {
     func getFollowers(username: String, page: Int) {
         
         showLoadingView()
+        isLoadingMoreFollowers = true
+        
         // [weak self] makes self weak, which makes it an optional
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             // use to not have to chain optional calls to self:
@@ -112,6 +115,7 @@ class FollowerListViewController: GFDataLoadingViewController {
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Oops! 🥺", message: error.rawValue, buttonTitle: "Ok")
             }
+            self.isLoadingMoreFollowers = false
         }
     }
     
@@ -169,7 +173,7 @@ extension FollowerListViewController: UICollectionViewDelegate {
         let height = scrollView.frame.size.height
         
         if offsetY > contentHeight - height {
-            guard hasMoreFollowers else { return }
+            guard hasMoreFollowers, !isLoadingMoreFollowers else { return }
             page += 1
             getFollowers(username: username, page: page)
         }
