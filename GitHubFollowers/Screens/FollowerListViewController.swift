@@ -81,7 +81,6 @@ class FollowerListViewController: GFDataLoadingViewController {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search for a username"
-        searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }
@@ -191,20 +190,20 @@ extension FollowerListViewController: UICollectionViewDelegate {
     }
 }
 
-extension FollowerListViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    //TODO: -doesn't search all followers, only current page
+extension FollowerListViewController: UISearchResultsUpdating {
+
     func updateSearchResults(for searchController: UISearchController) {
         //Check if search bar text is not empty
-        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+            filteredFollowers.removeAll()
+            updateData(on: followers)
+            isSearching = false
+            return
+        }
         isSearching = true
         // https://www.youtube.com/watch?v=OujkoTKEVj8 <-- video explanation of .filter()
         filteredFollowers = followers.filter({ $0.login.lowercased().contains(filter.lowercased()) })
         updateData(on: filteredFollowers)
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearching = false
-        updateData(on: followers)
     }
 }
 
