@@ -96,8 +96,7 @@ class GFAlertViewController: UIViewController {
             messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -12)
         ])
     }
-    
-    
+
     @objc func dismissVC() {
         dismiss(animated: true)
     }
