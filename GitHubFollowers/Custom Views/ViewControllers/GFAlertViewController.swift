@@ -24,7 +24,6 @@ class GFAlertViewController: UIViewController {
     
     let padding: CGFloat = 20
     
-    
     // MARK: - Initializers
     
     init(title: String, message: String, buttonTitle: String) {
@@ -39,10 +38,12 @@ class GFAlertViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = backgroundColor
         view.addSubviews(views: containerView, titleLabel, actionButton, messageLabel)
+        
         configureContainerView()
         configureTitleLabel()
         configureActionButton()
@@ -59,6 +60,7 @@ class GFAlertViewController: UIViewController {
             containerView.widthAnchor.constraint(equalToConstant: 280)
         ])
     }
+    
     
     func configureTitleLabel() {
         titleLabel.text = alertTitle ?? "Something went wrong." //Nil Coalescing - use alertTitle, if alertTitle nil, use this
@@ -97,6 +99,7 @@ class GFAlertViewController: UIViewController {
         ])
     }
 
+    
     @objc func dismissVC() {
         dismiss(animated: true)
     }

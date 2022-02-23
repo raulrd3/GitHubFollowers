@@ -54,6 +54,7 @@ class NetworkManager {
         task.resume()
     }
     
+    
     func getUserInfo(for username: String, completed: @escaping (Result<User, GFError>) -> Void){
         let endpoint = baseURL + "/users/\(username)"
         

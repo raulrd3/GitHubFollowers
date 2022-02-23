@@ -15,7 +15,6 @@ protocol ItemInfoVCDelegate: AnyObject {
 
 class GFItemInfoViewController: UIViewController {
 
-    
     let stackView = UIStackView()
     let itemInfoViewOne = GFItemInfoView()
     let itemInfoViewTwo = GFItemInfoView()
@@ -28,6 +27,7 @@ class GFItemInfoViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.user = user
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -42,10 +42,12 @@ class GFItemInfoViewController: UIViewController {
         layoutUI()
     }
     
+    
     private func configureBackgroundView() {
         view.layer.cornerRadius = 18
         view.backgroundColor = .secondarySystemBackground
     }
+    
     
     private func configureStackView() {
         stackView.axis = .horizontal
@@ -62,6 +64,7 @@ class GFItemInfoViewController: UIViewController {
     
     
     @objc func actionButtonTapped() {}
+    
     
     private func layoutUI() {
         view.addSubviews(views: stackView, actionButton)
@@ -81,6 +84,4 @@ class GFItemInfoViewController: UIViewController {
             actionButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
-
-
 }

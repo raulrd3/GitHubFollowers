@@ -176,13 +176,13 @@
 		D87303F4279E373D006C45FF /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
-				D81CF83C27A73C7900C19052 /* Extensions */,
 				D8EBD53627A107820035EDFB /* Utilities */,
 				D8EBD533279FBE8B0035EDFB /* Managers */,
+				D81CF83C27A73C7900C19052 /* Extensions */,
 				D8A785FD279F902C0095F522 /* Models */,
-				D8A785FC279F750C0095F522 /* Supporting Files */,
 				D8A785FB279F74870095F522 /* Custom Views */,
 				D8A785FA279F74560095F522 /* Screens */,
+				D8A785FC279F750C0095F522 /* Supporting Files */,
 			);
 			path = GitHubFollowers;
 			sourceTree = "<group>";

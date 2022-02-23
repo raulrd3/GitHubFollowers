@@ -7,8 +7,6 @@
 
 import UIKit
 import SafariServices
-
-
 /***
 global ONLY for this file because extensions can't hold variables
 no longer in use - for reference only:

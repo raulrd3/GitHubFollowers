@@ -7,11 +7,9 @@
 
 import UIKit
 
-
 protocol UserInfoVCDelegate: AnyObject {
     func didRequestFollowers(for username: String)
 }
-
 
 class UserInfoViewController: GFDataLoadingViewController {
 
@@ -34,6 +32,7 @@ class UserInfoViewController: GFDataLoadingViewController {
         layoutUI()
         getUserInfo()
     }
+    
     
     func configureViewController() {
         view.backgroundColor = .systemBackground
@@ -93,7 +92,6 @@ class UserInfoViewController: GFDataLoadingViewController {
             ])
         }
 
-        
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
             headerView.heightAnchor.constraint(equalToConstant: 210),
