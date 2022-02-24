@@ -15,7 +15,7 @@ class GFAlertViewController: UIViewController {
     
     let titleLabel = GFTitleLabel(textAlignment: .center, fontSize: 20)
     let messageLabel = GFBodyLabel(textAlignment: .center)
-    let actionButton = GFButton(backgroundColor: .systemPink, title: "Ok")
+    let actionButton = GFButton(backgroundColor: .systemPink, title: "Ok", systemImageName: "checkmark.circle")
     let backgroundColor = UIColor.black.withAlphaComponent(0.75) //alpha gives opacity
     
     var alertTitle: String?
