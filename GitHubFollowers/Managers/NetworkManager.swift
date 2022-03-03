@@ -79,39 +79,19 @@ class NetworkManager {
     }
     
     
-    func getUserInfo(for username: String, completed: @escaping (Result<User, GFError>) -> Void){
+    func getUserInfo(for username: String) async throws -> User{
         let endpoint = baseURL + "/users/\(username)"
-        
-        guard let url = URL(string: endpoint) else {
-            completed(.failure(.invalidUsername))
-            return
+        guard let url = URL(string: endpoint) else { throw GFError.invalidUsername }
+        let (data, response) = try await URLSession.shared.data(from: url)
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw GFError.invalidResponse
         }
         
-        let session = URLSession.shared
-        let task = session.dataTask(with: url) { data, response, error in
-            
-            if let _ = error {
-                completed(.failure(.unableToComplete))
-            }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(.failure(.invalidResponse))
-                return
-            }
-            
-            guard let data = data else {
-                completed(.failure(.invalidData))
-                return
-            }
-            
-            do {
-                let user = try self.decoder.decode(User.self, from: data)
-                completed(.success(user))
-            } catch {
-                completed(.failure(.invalidData))
-            }
+        do {
+            return try decoder.decode(User.self, from: data)
+        } catch {
+            throw GFError.invalidData
         }
-        task.resume()
     }
     
     
