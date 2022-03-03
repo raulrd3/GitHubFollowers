@@ -16,16 +16,22 @@ no longer in use - for reference only:
 
 extension UIViewController {
     
-    //Any VC can call presentGFAlertOnMainThread()
-    func presentGFAlertOnMainThread(title: String, message: String, buttonTitle: String){
-        //quickly place things onto main thread
-        DispatchQueue.main.async {
-            let alertVC = GFAlertViewController(title: title, message: message, buttonTitle: buttonTitle)
-            alertVC.modalPresentationStyle = .overFullScreen
-            alertVC.modalTransitionStyle = .crossDissolve
-            self.present(alertVC, animated: true)
-        }
+    //Any VC can call presentGFAlert()
+    func presentGFAlert(title: String, message: String, buttonTitle: String){
+        let alertVC = GFAlertViewController(title: title, message: message, buttonTitle: buttonTitle)
+        alertVC.modalPresentationStyle = .overFullScreen
+        alertVC.modalTransitionStyle = .crossDissolve
+        present(alertVC, animated: true)
     }
+    
+    
+    func presentDefaultError(){
+        let alertVC = GFAlertViewController(title: "Something went wrong.", message: "We were unable to complete your task at this time.  Please try again.", buttonTitle: "Ok")
+        alertVC.modalPresentationStyle = .overFullScreen
+        alertVC.modalTransitionStyle = .crossDissolve
+        present(alertVC, animated: true)
+    }
+    
     
     func presentSafariVC(with url: URL) {
         let safariVC = SFSafariViewController(url: url)
